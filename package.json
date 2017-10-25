@@ -1,16 +1,23 @@
 {
-  "name": "ev-dev-simple-react",
-  "version": "1.0.0",
+  "name": "ev-dev-starter",
+  "version": "0.2.1",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npm run build-dev & npm run serve-dev",
+    "build-dev": "cross-env NODE_ENV=development webpack -w",
+    "serve-dev": "nodemon server/index.js --watch server/dev",
+    "test-build": "cross-env NODE_ENV=development webpack --bail --progress -d",
+    "test": "nodemon tests/testServer.js --watch tests",
+    "start": "npm run build && npm run serve",
+    "build": "cross-env NODE_ENV=production webpack",
+    "serve": "node server/prod/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.16.2",
+    "axios": "^0.17.0",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "react": "^16.0.0",
