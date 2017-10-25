@@ -1,9 +1,11 @@
-const express = require('express')
-  , app = express()
-  , bodyParser = require('body-parser')
-  , { db } = require('./db/models')
-  , DEV_PORT = 3000
-  , PROD_PORT = 80
+const express = require('express'),
+  app = express(),
+  bodyParser = require('body-parser'),
+  {
+    db
+  } = require('./db/models'),
+  DEV_PORT = 3000,
+  PROD_PORT = 80
 
 app
   .use(bodyParser.urlencoded({
@@ -28,20 +30,43 @@ if (process.env.NODE_ENV === 'production') {
 
 // DEVELOPMENT
 else {
-  const chalk = require('chalk')
+  const _ = require('lodash'),
+    casual = require('casual'),
+    chalk = require('chalk'),
+    {
+      User,
+      Todo
+    } = require('./db/models')
+
   app.use(require('./app/dev'))
 
-  db.sync()
+  casual.seed(123)
+  db.sync({
+      force: true
+    })
+    .then(() => {
+      console.log('\n  - Seeding DB \n')
+      return _.times(10, () =>
+        User.create({
+          name: casual.first_name
+        })
+        .then(user => user.createTodo({
+          title: `Post by ${user.name}`,
+          content: casual.sentences(3)
+        }))
+        .catch(console.error)
+      )
+    })
     .then(() => {
       app.listen(DEV_PORT, () => {
         const name = chalk.red.bold('[Server]')
         const url = chalk.cyan.bold(`http://localhost:`)
         const listen = chalk.yellow.bold('Listening')
-        
+
         console.log(`
           ${name} - ${listen} - ${url}${chalk.yellow(DEV_PORT)}
         `)
       })
     })
     .catch(console.error)
-} 
+}
