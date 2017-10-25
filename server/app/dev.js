@@ -1,28 +1,18 @@
-const path = require('path'),
-  express = require('express'),
-  bodyParser = require('body-parser'),
-  app = express()
-
-app
-  .use(bodyParser.urlencoded({
-    extended: true
-  }))
-  .use(bodyParser.json())
+const router = require('express').Router()
+  , path = require('path')
 
 
+router
   /* --- Logging Middleware --- */
   .use(require('volleyball'))
-
 
   /* --- API Server --- */
   // .use('/api', require('./api'))
   
-
   /* --- Serve React App --- */
   .get('/bundle.js', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'public', 'bundle.js'))
   })
-
 
   /* --- Serve Assets --- */
   .use((req, res, next) => {
@@ -30,12 +20,10 @@ app
     else next(null)
   })
 
-
   /* --- Serve Root HTML --- */
   .get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'public', 'index.html'))
   })
-
 
   /* --- Error Endware --- */
   .use((err, req, res, next) => {
@@ -45,15 +33,4 @@ app
       .send(err.message || 'Internal Server Error.')
   })
 
-
-const PORT = 3000
-const chalk = require('chalk')
-app.listen(PORT, () => {
-  const name = chalk.red.bold('[Server]')
-  const url = chalk.cyan.bold(`http://localhost:`)
-  const listen = chalk.yellow.bold('Listening')
-
-  console.log(`
-  ${name} - ${listen} - ${url}${chalk.yellow(PORT)}
-  `)
-})
+module.exports = router

@@ -6,12 +6,12 @@
   "scripts": {
     "dev": "npm run build-dev & npm run serve-dev",
     "build-dev": "cross-env NODE_ENV=development webpack -w",
-    "serve-dev": "nodemon server/index.js --watch server/dev",
+    "serve-dev": "nodemon server/index.js --watch server",
     "test-build": "cross-env NODE_ENV=development webpack --bail --progress -d",
     "test": "nodemon tests/testServer.js --watch tests",
     "start": "npm run build && npm run serve",
     "build": "cross-env NODE_ENV=production webpack",
-    "serve": "node server/prod/index.js"
+    "serve": "cross-env NODE_ENV=production node server/index.js"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +20,8 @@
     "axios": "^0.17.0",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "pg": "^7.3.0",
+    "pg-native": "^2.2.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
@@ -27,7 +29,8 @@
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "sequelize": "^4.17.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.5",

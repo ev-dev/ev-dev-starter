@@ -1,16 +1,9 @@
-const path = require('path')
-  , express = require('express')
-  , app = express()
+const router = require('express').Router()
+  , path = require('path')
 
-app
+router
   /* --- API Server --- */
-  // .use(bodyParser.urlencoded({
-  //   extended: true
-  // }))
-  // .use(bodyParser.json())
-
   // .use('/api', require('./api'))
-
 
   .get('/bundle.js', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'public', 'bundle.js'))
@@ -32,9 +25,4 @@ app
       .send(err.message || 'Internal Server Error.')
   })
 
-const PORT = 80
-app.listen(PORT, () => {
-  console.log(`
-    - Production Server Running on Port ${PORT} -
-  `)
-})
+module.exports = router
