@@ -5,10 +5,21 @@ const { makeExecutableSchema } = require('graphql-tools')
 // @ts-ignore
 const typeDefs = gql`
   type Query {
-    user(name: String): User
+    user(name: String): [User]
     users: [User]
-    todo(title: String, content: String): Todo
+    todo(query: String): [Todo]
     todos: [Todo]
+    search(query: String): Search
+  }
+
+  type Mutation {
+    createTodo(
+      title: String, 
+      content: String,
+      userId: Int 
+    ): Todo
+    createUser(name: String): User
+    upvoteTodo(todoId: Int): Todo
   }
 
   type User {
@@ -21,7 +32,18 @@ const typeDefs = gql`
     id: Int
     title: String
     content: String
+    votes: Int
     user: User
+  }
+
+  type Search {
+    todos: [Todo]
+    users: [User]
+  }
+
+  schema {
+    query: Query
+    mutation: Mutation
   }
 `
 

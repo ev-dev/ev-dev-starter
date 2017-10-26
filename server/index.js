@@ -45,7 +45,8 @@ else {
         })
         .then(user => user.createTodo({
           title: `Post by ${user.name}`,
-          content: casual.sentences(3)
+          content: casual.sentences(3),
+          votes: casual.integer(0, 1000)
         }))
         .catch(console.error)
       )
