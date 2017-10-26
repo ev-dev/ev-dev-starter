@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "npm run build-dev & npm run serve-dev",
     "build-dev": "cross-env NODE_ENV=development webpack -w",
-    "serve-dev": "nodemon server/index.js --watch server",
+    "serve-dev": "nodemon ./server/index.js --watch server",
     "test-build": "cross-env NODE_ENV=development webpack --bail --progress -d",
     "test": "nodemon tests/testServer.js --watch tests",
     "start": "npm run build && npm run serve",
@@ -17,9 +17,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "apollo-server-express": "^1.2.0",
     "axios": "^0.17.0",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "graphql": "^0.11.7",
+    "graphql-tag": "^2.5.0",
+    "graphql-tools": "^2.6.1",
     "pg": "^7.3.0",
     "pg-native": "^2.2.0",
     "react": "^16.0.0",
@@ -34,6 +38,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^7.1.5",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-react-app": "^3.0.3",

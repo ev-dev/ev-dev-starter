@@ -1,10 +1,15 @@
 const router = require('express').Router()
   , path = require('path')
-
+  , { graphqlExpress, graphiqlExpress } = require('apollo-server-express')
+  , schema = require('../graphql/schema')
 
 router
   /* --- Logging Middleware --- */
   .use(require('volleyball'))
+
+  /* --- GraphQL Server --- */
+  .use('/graphql', graphqlExpress({ schema }))
+  .use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }))
 
   /* --- API Server --- */
   // .use('/api', require('./api'))

@@ -1,9 +1,7 @@
 const express = require('express'),
   app = express(),
   bodyParser = require('body-parser'),
-  {
-    db
-  } = require('./db/models'),
+  { db } = require('./db/models'),
   DEV_PORT = 3000,
   PROD_PORT = 80
 
@@ -33,17 +31,12 @@ else {
   const _ = require('lodash'),
     casual = require('casual'),
     chalk = require('chalk'),
-    {
-      User,
-      Todo
-    } = require('./db/models')
+    { User, Todo } = require('./db/models')
 
   app.use(require('./app/dev'))
 
   casual.seed(123)
-  db.sync({
-      force: true
-    })
+  db.sync({ force: true })
     .then(() => {
       console.log('\n  - Seeding DB \n')
       return _.times(10, () =>
@@ -59,7 +52,7 @@ else {
     })
     .then(() => {
       app.listen(DEV_PORT, () => {
-        const name = chalk.red.bold('[Server]')
+        const name = chalk.red.bold('[Server with GraphQL]')
         const url = chalk.cyan.bold(`http://localhost:`)
         const listen = chalk.yellow.bold('Listening')
 
