@@ -75,4 +75,5 @@ module.exports = {
   Todo: {
     user: todo => todo.getUser()
   }
+
 }
