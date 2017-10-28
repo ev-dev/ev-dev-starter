@@ -11,7 +11,7 @@ router
   
   /* --- Serve React App --- */
   .get('/bundle.js', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'public', 'bundle.js'))
+    res.sendFile(path.join(__dirname, '..', '..', 'public', 'bundle.js'))
   })
 
   /* --- Serve Assets --- */
@@ -22,7 +22,7 @@ router
 
   /* --- Serve Root HTML --- */
   .get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'public', 'index.html'))
+    res.sendFile(path.join(__dirname, '..', '..', 'public', 'index.html'))
   })
 
   /* --- Error Endware --- */

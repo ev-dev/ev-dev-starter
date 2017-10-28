@@ -1,10 +1,10 @@
 const _ = require('lodash')
   , casual = require('casual')
-  , { green } = require('chalk')
+  , { blue } = require('chalk')
   , { db, User, Todo } = require('./models')
 
 module.exports = () => {
-  console.log(green.bold('\n  - Seeding Database...'))
+  console.log(blue('\n  - Seeding Database...'))
   casual.seed(123)
 
   return db.sync({ force: true })

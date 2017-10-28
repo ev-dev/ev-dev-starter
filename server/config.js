@@ -22,10 +22,10 @@ const logListen = (config = defaults) => {
   const { pkgName, baseURL, port } = config
     , NAME = red.bold(`[${pkgName.toUpperCase()}]`)
     , FULL_URL = `${cyan.bold(baseURL)}${yellow(port)}`
-    , len = pkgName.length 
-    , bars = len <= 14 ? 44 : len + 25
-    , space = len <= 14 ? 22 - len : 3
-    , btmSpace = len <= 14 ? 3 : len - 16
+    , len = pkgName.length
+    , bars = len <= 14 ? 44 : len + 26
+    , space = len <= 14 ? 22 - len : 4
+    , btmSpace = len <= 14 ? 3 : len - 15
 
   if (isProd)
     console.log(`
