@@ -1,12 +1,18 @@
-const db = require('../db')
-  , User = require('./User')
-  , Todo = require('./Todo')
+import DB from '../_db'
+import User from './User'
+import Todo from './Todo'
 
+
+//###############   Associations   ################//
+//*************************************************//
 User.hasMany(Todo)
 Todo.belongsTo(User)
 
-module.exports = {
-  User,
-  Todo,
-  db
-}
+
+
+
+//#################################################//
+//*************************************************//
+
+
+export { DB, User, Todo }

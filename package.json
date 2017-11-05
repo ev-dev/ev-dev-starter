@@ -1,16 +1,11 @@
 {
   "name": "ev-dev-starter",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run build-dev & npm run serve-dev",
-    "build-dev": "cross-env NODE_ENV=development webpack -w",
-    "serve-dev": "nodemon server/index.js --watch server",
-    "test-build": "cross-env NODE_ENV=development webpack --bail --progress -d",
+    "start": "nodemon server/index.js --watch server",
     "test": "nodemon tests/testServer.js --watch tests",
-    "start": "npm run build && npm run serve",
-    "build": "cross-env NODE_ENV=production webpack",
     "serve": "cross-env NODE_ENV=production node server/index.js"
   },
   "keywords": [],
@@ -20,34 +15,14 @@
     "axios": "^0.17.0",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
-    "pg": "^7.3.0",
+    "faker": "^4.1.0",
+    "pg": "^7.4.0",
     "pg-native": "^2.2.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-redux": "^5.0.6",
-    "react-router-dom": "^4.2.2",
-    "redux": "^3.7.2",
-    "redux-devtools-extension": "^2.13.2",
-    "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.2.0",
-    "sequelize": "^4.17.2"
+    "sequelize": "^4.22.4"
   },
   "devDependencies": {
-    "autoprefixer": "^7.1.5",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-react-app": "^3.0.3",
-    "casual": "^1.5.17",
-    "chalk": "^2.2.0",
-    "cross-env": "^5.1.0",
-    "css-loader": "^0.28.7",
+    "chalk": "^2.3.0",
     "lodash": "^4.17.4",
-    "node-sass": "^4.5.3",
-    "postcss-loader": "^2.0.8",
-    "sass-loader": "^6.0.6",
-    "style-loader": "^0.19.0",
-    "volleyball": "^1.4.1",
-    "webpack": "^3.8.1",
-    "webpack-livereload-plugin": "^1.0.0"
+    "volleyball": "^1.4.1"
   }
 }

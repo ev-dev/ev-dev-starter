@@ -1,19 +1,23 @@
-const express = require('express')
-  , app = express()
-  , bodyParser = require('body-parser')
-  , { initDB, logListen, defaults, isProd } = require('./config')
+import express from 'express'
+
+import { prodRouter, devRouter, apiRouter } from './app'
+import {
+  options, initDB, seedDB,
+  logListen, errorHandler
+} from './config'
+const { isProd, PORT } = options
 
 
-app
-  .use(bodyParser.urlencoded({ extended: true }))
-  .use(bodyParser.json())
-
-
-isProd
-  ? app.use(require('./app/prod'))
-  : app.use(require('./app/dev'))
-
-
-initDB()
-  .then(() => app.listen(defaults.port, logListen))
-  .catch(console.error)
+try { 
+  initDB() 
+} 
+catch (err) { 
+  console.error('Error Syncing DB. ', err)
+} 
+finally { 
+  express()
+    .use(isProd ? prodRouter : devRouter)
+    .use(apiRouter)
+    .use(errorHandler)
+    .listen(PORT, logListen)
+}

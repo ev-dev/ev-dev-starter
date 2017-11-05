@@ -1,9 +1,7 @@
-const { STRING, TEXT } = require('sequelize')
-  , db = require('../db')
+import { STRING, TEXT } from 'sequelize'
+import db from '../_db'
 
-const Todo = db.define('todo', {
+export const Todo = db.define('todo', {
   title: STRING,
   content: TEXT
 })
-
-module.exports = Todo

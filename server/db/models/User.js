@@ -1,8 +1,6 @@
-const { STRING } = require('sequelize')
-  , db = require('../db')
+import { STRING } from 'sequelize'
+import db from '../_db'
 
-const User = db.define('user', {
+export const User = db.define('user', {
   name: STRING
 })
-
-module.exports = User
