@@ -1,14 +1,14 @@
 import Sequelize from 'sequelize'
-
-const DB_NAME = 'ev-dev-starter'
-
+// import { pkgName } from '../config'
+const pkgName = process.env.npm_package_name
 console.log(`
-  - Opening connection to PostgresSQL DB  ${DB_NAME}
+  - Opening connection to PostgresSQL DB  ${pkgName}
 `)
 
 export default new Sequelize(
-  `postgres://localhost:5432/${DB_NAME}`, {
+  `postgres://localhost:5432/${pkgName}`, {
     logging: false,
+    operatorsAliases: Sequelize.Op,
     native: true
   }
 )

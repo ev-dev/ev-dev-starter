@@ -1,15 +1,10 @@
 import express from 'express'
 
 import { prodRouter, devRouter, apiRouter } from './app'
-import {
-  options, initDB, seedDB,
-  logListen, errorHandler
-} from './config'
-const { isProd, PORT } = options
-
+import { isProd, PORT, initDB, logListen, errorHandler } from './config'
 
 try { 
-  initDB() 
+  initDB()
 } 
 catch (err) { 
   console.error('Error Syncing DB. ', err)

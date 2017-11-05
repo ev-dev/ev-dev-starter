@@ -1,6 +1,6 @@
 import DB from '../_db'
-import User from './User'
-import Todo from './Todo'
+import { User } from './User'
+import { Todo } from './Todo'
 
 
 //###############   Associations   ################//
