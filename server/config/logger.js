@@ -4,10 +4,9 @@ import chalk from 'chalk'
 
 import { pkgName, isProd, baseURL, PORT} from '.'
 
-
 export const logger = Router().use(volleyball)
 
-export const logListen = () => {``
+export const logListen = () => {
   const { yellow, cyan, red, blue } = chalk
     , NAME = red.bold(`[${pkgName.toUpperCase()}]`)
     , FULL_URL = `${cyan.bold(baseURL)}${yellow(PORT)}`
