@@ -1,4 +1,5 @@
 node_modules
 .DS_Store
+.esm-cache
 .vscode
 public/bundle*
