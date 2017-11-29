@@ -13,24 +13,50 @@
   "author": "",
   "license": "ISC",
   "@std/esm": {
-    "esm": "js",
+    "esm": "all",
     "cjs": true,
+    "interop": true,
+    "namedExports": true,
+    "paths": true,
     "await": true,
     "warnings": false
   },
   "dependencies": {
-    "@std/esm": "^0.13.0",
-    "axios": "^0.17.0",
+    "@std/esm": "^0.16.0",
+    "axios": "^0.17.1",
     "body-parser": "^1.18.2",
+    "bulma": "^0.6.1",
     "express": "^4.16.2",
-    "faker": "^4.1.0",
-    "pg": "^7.4.0",
+    "pg": "6",
+    "pg-hstore": "^2.3.2",
     "pg-native": "^2.2.0",
-    "sequelize": "^4.22.5"
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "sequelize": "^4.23.2"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react-app": "^3.1.0",
     "chalk": "^2.3.0",
+    "cross-env": "^5.1.1",
+    "css-loader": "^0.28.7",
+    "faker": "^4.1.0",
+    "file-loader": "^1.1.5",
     "lodash": "^4.17.4",
-    "volleyball": "^1.4.1"
+    "node-sass": "^4.7.2",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-logger": "^3.0.6",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.0",
+    "url-loader": "^0.6.2",
+    "volleyball": "^1.4.1",
+    "webpack": "^3.8.1",
+    "webpack-livereload-plugin": "^1.0.0"
   }
 }
