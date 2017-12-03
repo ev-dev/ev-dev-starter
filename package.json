@@ -22,7 +22,7 @@
     "@std/esm": "^0.13.0",
     "axios": "^0.17.0",
     "body-parser": "^1.18.2",
-    "express": "^4.16.2",
+    "express": "^4.16.2"
   },
   "devDependencies": {
     "chalk": "^2.3.0",
