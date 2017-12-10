@@ -1,0 +1,9 @@
+{
+  "plugins": {
+    "postcss-import": {},
+    "postcss-nested": {},
+    "postcss-cssnext": {
+      "browsers": ["last 2 versions", "IE > 10"]
+    }
+  }
+}

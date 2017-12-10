@@ -12,7 +12,7 @@ export default merge({
 
   module: {
     rules: [{
-      test: /\.css$/,
+      test: /\.(css|scss|sass)$/,
       use: [{
         loader: 'style-loader'
       }, {
@@ -22,9 +22,12 @@ export default merge({
           localIdentName: '[local]__[path][name]__[hash:base64:5]'
         }
       }, {
+        loader: 'sass-loader'
+      }, {
         loader: 'postcss-loader'
-      }],
-      exclude: /node_modules/
+      }
+    ],
+      // exclude: /node_modules/
     }]
   },
 

@@ -21,7 +21,7 @@ export const CONFIG = {
   },
 
   resolve: {
-    extensions: ['.js', '.jsx', '.css'],
+    extensions: ['.js', '.jsx', '.css', '.scss'],
 
     modules: [
       APP_PATH, 'node_modules'

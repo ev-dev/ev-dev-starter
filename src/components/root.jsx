@@ -1,11 +1,10 @@
 import React from 'react'
+import '../styles/index.scss'
 
 import Home from './Home'
 
 const Root = () => (
   <div>
-    <h1>Hot Starter.</h1>
-
     <Home />
   </div>
 )
