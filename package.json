@@ -5,17 +5,31 @@
   "main": "index.js",
   "scripts": {
     "dev": "npm run build-dev & npm run serve-dev",
-    "build-dev": "cross-env NODE_ENV=development webpack -w",
-    "serve-dev": "nodemon server/index.js --watch server/dev",
-    "test-build": "cross-env NODE_ENV=development webpack --bail --progress -d",
-    "test": "nodemon tests/testServer.js --watch tests",
+    "build-dev": "NODE_ENV=development webpack -w",
+    "serve-dev": "NODE_ENV=development nodemon -r @std/esm src/server --watch src/server",
+    "test-serve": "NODE_ENV=development nodemon -r @std/esm src/server/tests",
+    "test-build": "NODE_ENV=development webpack --bail --progress -d",
     "start": "npm run build && npm run serve",
-    "build": "cross-env NODE_ENV=production webpack",
-    "serve": "node server/prod/index.js"
+    "build": "NODE_ENV=production webpack",
+    "serve": "NODE_ENV=production node src/server"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "boilerplate"
+  ],
+  "author": "ev-dev",
+  "license": "MIT",
+  "@std/esm": {
+    "esm": "all",
+    "cjs": {
+      "interop": true,
+      "namedExports": true,
+      "paths": true,
+      "vars": true
+    },
+    "debug": true,
+    "sourceMap": true,
+    "warnings": false
+  },
   "dependencies": {
     "@std/esm": "0.18.0",
     "axios": "^0.17.1",
@@ -31,9 +45,9 @@
     "babel-loader": "^7.1.2",
     "babel-preset-react-app": "^3.1.0",
     "chalk": "^2.3.0",
-    "cross-env": "^5.1.1",
     "css-loader": "^0.28.7",
     "node-sass": "^4.7.2",
+    "nodemon": "^1.12.5",
     "postcss-loader": "^2.0.9",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.0",
