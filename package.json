@@ -19,8 +19,8 @@
     "warnings": false
   },
   "dependencies": {
-    "@std/esm": "^0.13.0",
-    "axios": "^0.17.0",
+    "@std/esm": "^0.18.0",
+    "axios": "^0.17.1",
     "body-parser": "^1.18.2",
     "express": "^4.16.2"
   },
