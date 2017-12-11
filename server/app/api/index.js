@@ -6,5 +6,5 @@ import user from './users'
 export default Router()
   .use(bodyParser.urlencoded({ extended: true }))
   .use(bodyParser.json())
-  .use('/todo', todo)
-  .use('/user', user)
+  .use('/todos', todo)
+  .use('/users', user)

@@ -1,21 +1,26 @@
 {
   "name": "ev-dev-starter",
-  "version": "0.2.3",
+  "version": "0.3.1",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -r @std/esm server/index.js --watch server",
-    "seed": "node -r @std/esm server/config/runSeed.js",
-    "test": "nodemon tests/testServer.js --watch tests",
-    "serve": "cross-env NODE_ENV=production node server/index.js"
+    "start": "NODE_ENV=development nodemon -r @std/esm server",
+    "start:prod": "NODE_ENV=production node server/index.js",
+    "test": "nodemon tests/testServer.js --watch tests"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "@std/esm": {
-    "esm": "js",
-    "cjs": true,
-    "await": true,
+    "esm": "all",
+    "cjs": {
+      "interop": true,
+      "namedExports": true,
+      "paths": true,
+      "vars": true
+    },
+    "debug": true,
+    "sourceMap": true,
     "warnings": false
   },
   "dependencies": {
