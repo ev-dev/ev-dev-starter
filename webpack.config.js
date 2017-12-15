@@ -7,7 +7,7 @@ module.exports = {
   entry: path.join(__dirname, 'src', 'index'),
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'public')
+    path: path.resolve(__dirname, 'dist')
   },
   module: {
     rules: [{
@@ -59,7 +59,7 @@ module.exports = {
   },
   devtool: isDev ? 'cheap-module-eval-source-map' : 'source-map',
   devServer: {
-    publicPath: path.join('/public/')
+    publicPath: path.join('/dist/')
   },
   plugins: isDev 
     ? [
