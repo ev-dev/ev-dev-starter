@@ -1,22 +1,9 @@
-/* - Libraries - */
+@import "../../node_modules/bulma/css/bulma.css";
 
+.homepage {
+  color: green;
+}
 
-
-/* - Custom Imports - */
-
-
-
-/* - Media Queries - */
-
-// @include media-breakpoint-down(xs) {
-// PORTRAIT PHONES
-// }
-// @include media-breakpoint-down(sm) {
-// LANDSCAPE PHONES
-// }
-// @include media-breakpoint-down(md) {
-// TABLETS
-// }
-// @include media-breakpoint-down(lg) {
-// DESKTOPS
-// }
+#testit {
+  color: blue;
+}
