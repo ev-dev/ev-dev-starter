@@ -5,24 +5,27 @@
   "main": "index.js",
   "scripts": {
     "start": "node -r @std/esm app.js",
-    "start-watch": "nodemon -r @std/esm app.js"
+    "dev": "nodemon -r @std/esm app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "@std/esm": {
-    "esm": "js",
-    "cjs": true,
-    "await": true,
-    "paths": true,
-    "namedExports": true,
-    "interop": true,
+    "esm": "all",
+    "cjs": {
+      "interop": true,
+      "namedExports": true,
+      "paths": true,
+      "vars": true
+    },
+    "debug": true,
+    "sourceMap": true,
     "warnings": false
   },
   "dependencies": {
-    "@std/esm": "^0.16.0"
+    "@std/esm": "^0.18.0"
   },
   "devDependencies": {
-    "nodemon": "^1.12.1"
+    "nodemon": "^1.13.3"
   }
 }
