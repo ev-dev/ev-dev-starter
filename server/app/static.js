@@ -4,7 +4,7 @@ import path from 'path'
 export default Router()
   /* --- Serve React App --- */
   .get('/bundle.js', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'dist', 'bundle.js'))
+    res.sendFile(path.join(__dirname, '..', '..', 'dist', 'bundle.js'))
   })
   /* --- Serve Assets --- */
   .use((req, res, next) => {
@@ -13,5 +13,5 @@ export default Router()
   })
   /* --- Serve Root HTML --- */
   .get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'))
+    res.sendFile(path.join(__dirname, '..', '..', 'dist', 'index.html'))
   })
