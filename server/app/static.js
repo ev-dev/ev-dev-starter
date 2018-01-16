@@ -8,9 +8,9 @@ const filePath = file => path.join(
 
 export default Router()
   /* --- Serve React App --- */
-  .get('/bundle.js', (req, res) => {
-    res.sendFile(filePath('bundle.js'))
-  })
+  // .get('/bundle.js', (req, res) => {
+  //   res.sendFile(filePath('bundle.js'))
+  // })
 
   /* --- Serve Assets --- */
   .use((req, res, next) => {
